@@ -72,11 +72,16 @@ header {
 }
 
 .menu_image{
+
+    float: right;
+}
+
+img[alt="Menu"]{
     width: 30px !important;
     height: 30px !important;
     border-radius: 30px !important;
-    float: right;
 }
+
 
 .dropdown{
     position: relative;
@@ -393,6 +398,11 @@ footer a {
 @media only screen and (max-width:540.00px) {
     .banniers_containte li {
         display: none;
+    }
+    .reseaux_sociaux {
+        margin-top: 20px !important;
+        margin-bottom: 5px !important;
+        /* border:2px #000000 solid; */
     }
 }
 
