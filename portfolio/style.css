@@ -72,6 +72,9 @@ header {
 }
 
 .menu_image{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
     float: right;
 }
 
@@ -106,11 +109,6 @@ ul a:hover{
 .dropdown:hover .dropdown-content{
     display: block;
 }
-
-
-/* .menu_image:hover {
-    display: block;
-} */
 
 .nom_prenom{
     font-weight: bold;
