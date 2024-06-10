@@ -1,3 +1,15 @@
+document.getElementById('menu_image').addEventListener('click', (event)=>{
+    document.getElementById('dropdown-content').style.display = "block";
+});
+
+const dropdown_links = ['dropdown-link1', 'dropdown-link2', 'dropdown-link3', 'dropdown-link4']
+dropdown_links.forEach((link_id)=>{
+    document.getElementById(link_id).addEventListener('click', (event)=>{
+        // event.preventDefault();
+        document.getElementById('dropdown-content').style.display = "none";
+    });
+});
+
 document.getElementById('formOfContact').addEventListener('submit', (event)=>{
     event.preventDefault();
 
@@ -7,7 +19,6 @@ document.getElementById('formOfContact').addEventListener('submit', (event)=>{
     //     user_email: form.email.value,
     //     message: form.message.value
     // };
-    // console.log(formData);
 
 // Réinitialiser les messages et les styles d'erreur
     document.getElementById('retourMessage').textContent = '';
