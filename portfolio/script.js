@@ -2,7 +2,7 @@ document.getElementById('menu_image').addEventListener('click', (event)=>{
     document.getElementById('dropdown-content').style.display = "block";
 });
 
-const dropdown_links = ['dropdown-link1', 'dropdown-link2', 'dropdown-link3', 'dropdown-link4']
+const dropdown_links = ['dropdown-link1', 'dropdown-link2', 'dropdown-link3', 'dropdown-link4', 'main']
 dropdown_links.forEach((link_id)=>{
     document.getElementById(link_id).addEventListener('click', (event)=>{
         // event.preventDefault();
