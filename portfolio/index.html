@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <!-- icon: fontawesom -->
     <script src="https://kit.fontawesome.com/f8d6a1ecde.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="style.css">
     <title>Portfolio Dohou maurice, Développeur web et mobile</title>
 </head>
@@ -224,7 +225,7 @@
                 </p>
                 <a href="images/cv_maurice_dohou.pdf" download>Mon CV</a> -->
                 <p class="section_p_1">Pour toute demande, veuillez remplir le formulaire ci-dessous :</p>
-                <form id="formOfContact">
+                <form id="formOfContact" method="POST">
                     <div class="input">
                         <label for="nom">Nom</label>
                         <input type="text" name="user_name" id="nom" placeholder="Entrez votre nom">
@@ -240,11 +241,17 @@
                     <div class="input">
                         <input type="submit" value="Envoyer">
                     </div>
+                    <div id="recaptcha_element"></div>
                 </form>
+                        
+                <div class="input" id="recaptcha_token" hidden>
+                    <label for="token">recaptcha</label>
+                    <input type="text" name="recaptcha_token" id="token" placeholder="">
+                </div>
+
                 <div id="retourMessage"></div>
             </section>
         </main>
-
         
         <footer>
             <!-- <div>
@@ -276,6 +283,26 @@
             <p>&copy; 2024 Dohou Maurice. Tous droits réservés.</p>
         </footer>
     </div>
+
+    <!-- script pour recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+    <script type="text/javascript">
+        var verifyCallback = function(response) {
+            document.querySelector('#recaptcha_token input').value = response
+            // alert(response);
+        };
+        var onloadCallback = function() {
+            grecaptcha.render('recaptcha_element', {
+                'sitekey' : '6LfrUfYpAAAAAOZAPJsonp1CRLw8-JLVlcuWXLq6',
+                'callback' : verifyCallback,
+                'theme' : 'dark'
+            });
+        };
+    </script>
+
+    <!-- script EmailJs -->
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>

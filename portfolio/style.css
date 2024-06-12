@@ -160,6 +160,11 @@ div[title="talent"], img[title="talent"]{
     opacity: 1;
 }
 
+/* .conteneur_photo_profil div{
+    box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3),
+    -10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+} */
+
 section {
     padding: 10px;
     /* box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5); */
@@ -348,6 +353,14 @@ input.error, textarea.error {
 
 input.error::placeholder, textarea.error::placeholder {
     color: red;
+}
+
+
+#recaptcha_element{
+    /* border: 1px #000000 solid;
+    float: right; */
+    display: flex;
+    justify-content: end;
 }
 
 /* Styles pour le footer*/

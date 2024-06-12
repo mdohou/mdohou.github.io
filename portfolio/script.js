@@ -1,3 +1,4 @@
+// gestion de l'affichage de la barre de navigation
 document.getElementById('menu_image').addEventListener('click', (event)=>{
     document.getElementById('dropdown-content').style.display = "block";
 });
@@ -11,7 +12,16 @@ dropdown_links.forEach((link_id)=>{
 });
 
 document.getElementById('formOfContact').addEventListener('submit', (event)=>{
+
     event.preventDefault();
+    // passer l'etape recaptcha avant tout soumission
+    let recaptcha_token =document.querySelector('#recaptcha_token input')
+    // console.log(recaptcha_token)
+    if(!recaptcha_token.value){
+        document.getElementById('retourMessage').textContent = 'Veuillez verifier que vous n\'est pas un robot.';
+        document.getElementById('retourMessage').style.color = 'red';
+        return;
+    }
 
     // let form = event.target;
     // let formData = {
@@ -22,6 +32,7 @@ document.getElementById('formOfContact').addEventListener('submit', (event)=>{
 
 // Réinitialiser les messages et les styles d'erreur
     document.getElementById('retourMessage').textContent = '';
+    document.getElementById('retourMessage').classList.remove('error');
     let inputs = document.querySelectorAll('#formOfContact input,#formOfContact textarea');
     inputs.forEach((input)=>{
         input.classList.remove('error');
@@ -65,11 +76,11 @@ document.getElementById('formOfContact').addEventListener('submit', (event)=>{
                     alert("Message envoyé avec succès")
                     console.log('SUCCESS!', response.status, response.text);
                     document.getElementById('retourMessage').textContent = 'Merci pour votre message. Nous vous répondrons dans un bref délais.';
-                    document.getElementById('retourMessage').classList.remove('error')
+                    document.getElementById('retourMessage').classList.remove('error');
                     document.getElementById('formOfContact').reset();
                 },
                 (error) => {
-                    alert("Oups ! Une erreur s'est produite, veuillez réessayer.")
+                    alert("Oups ! Une erreur s'est produite, veuillez réessayer.");
                     console.log('FAILED...', error);
                 },
             );
