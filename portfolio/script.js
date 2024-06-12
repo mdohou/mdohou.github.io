@@ -18,7 +18,7 @@ document.getElementById('formOfContact').addEventListener('submit', (event)=>{
     let recaptcha_token =document.querySelector('#recaptcha_token input')
     // console.log(recaptcha_token)
     if(!recaptcha_token.value){
-        document.getElementById('retourMessage').textContent = 'Veuillez verifier que vous n\'est pas un robot.';
+        document.getElementById('retourMessage').textContent = 'Veuillez cocher la case : "Je ne suis pas un robot".';
         document.getElementById('retourMessage').style.color = 'red';
         return;
     }
